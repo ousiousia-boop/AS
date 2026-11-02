@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>OUSIA Studio | Alexander Silveira - Diseño Gráfico & Comunicación Visual en Uruguay</title>
+  <meta name="title" content="OUSIA Studio | Alexander Silveira - Diseño Gráfico & Comunicación Visual en Uruguay" />
+  <meta name="description" content="Estudio de diseño gráfico y comunicación visual en Uruguay liderado por Alexander Silveira. Especialistas en Branding, Rebranding, Logos, Diseño Editorial y Estrategia Visual de alto impacto." />
+  <meta name="keywords" content="diseñador gráfico Uruguay, diseñador gráfico freelance Uruguay, branding Uruguay, identidad visual Uruguay, diseño de logos Uruguay, diseño editorial Uruguay, Alexander Silveira, OUSIA, OUSIA Design, estudio de diseño gráfico Uruguay" />
+  <meta name="author" content="Alexander Silveira" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ousia.design/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ousia.design/" />
+  <meta property="og:title" content="OUSIA Studio | Alexander Silveira - Comunicación Visual & Branding" />
+  <meta property="og:description" content="La esencia del diseño visual. Branding, logos, rebranding y diseño editorial de alto impacto desde Uruguay." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" />
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://ousia.design/" />
+  <meta property="twitter:title" content="OUSIA Studio | Alexander Silveira" />
+  <meta property="twitter:description" content="La esencia del diseño visual. Branding, logos, rebranding y diseño editorial de alto impacto." />
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "OUSIA Studio - Alexander Silveira",
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+    "@id": "https://ousia.design/#studio",
+    "url": "https://ousia.design/",
+    "telephone": "+59892705850",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "UY"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -34.9011,
+      "longitude": -56.1645
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    },
+    "sameAs": [
+      "https://instagram.com/ousia_design",
+      "https://instagram.com/alexandersilveiraq"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Alexander Silveira",
+      "jobTitle": "Técnico en Comunicación Visual y Diseño Gráfico"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            neon: '#38FF00',
+            violetCustom: '#9B00FF',
+            darkBg: '#050508',
+            cardBg: '#0C0D14',
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'neon-glow': '0 0 25px rgba(56, 255, 0, 0.4)',
+            'violet-glow': '0 0 25px rgba(155, 0, 255, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Space Grotesk (Alternativa a Monument Extended) e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- React & React DOM Babel CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #050508;
+      color: #F3F4F6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    /* Wave Grid Canvas styling */
+    #wave-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* Smooth Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050508;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f293d;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9B00FF;
+    }
+    .neon-text-glow {
+      text-shadow: 0 0 15px rgba(56, 255, 0, 0.5);
+    }
+    .violet-text-glow {
+      text-shadow: 0 0 15px rgba(155, 0, 255, 0.6);
+    }
+    .glass-card {
+      background: rgba(12, 13, 20, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="relative antialiased selection:bg-neon selection:text-black">
+
+  <!-- Canvas for Wave Grid Cosmic Ocean background -->
+  <canvas id="wave-canvas"></canvas>
+
+  <div id="root" class="relative z-10"></div>
+
+  <!-- Interactive Wave Grid Canvas Script -->
+  <script>
+    const canvas = document.getElementById('wave-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Cosmic Grid Wave Parameters
+    let step = 0;
+    const gridCols = 40;
+    const gridRows = 30;
+
+    function drawWaveGrid() {
+      ctx.clearRect(0, 0, width, height);
+
+      step += 0.015;
+
+      // Deep ocean space gradient background overlay
+      const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+      bgGrad.addColorStop(0, 'rgba(5, 5, 8, 0.92)');
+      bgGrad.addColorStop(0.5, 'rgba(10, 5, 20, 0.88)');
+      bgGrad.addColorStop(1, 'rgba(3, 12, 22, 0.94)');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      // Grid Perspective simulation
+      const horizonY = height * 0.45;
+      const cellWidth = width / gridCols;
+
+      ctx.lineWidth = 1;
+
+      // Draw Horizontal Wavy Lines
+      for (let r = 0; r < gridRows; r++) {
+        const progress = r / gridRows;
+        const yBase = horizonY + Math.pow(progress, 2.2) * (height - horizonY);
+
+        ctx.beginPath();
+        const lineGrad = ctx.createLinearGradient(0, yBase, width, yBase);
+        lineGrad.addColorStop(0, 'rgba(155, 0, 255, ' + (progress * 0.25) + ')');
+        lineGrad.addColorStop(0.5, 'rgba(56, 255, 0, ' + (progress * 0.4) + ')');
+        lineGrad.addColorStop(1, 'rgba(155, 0, 255, ' + (progress * 0.25) + ')');
+        ctx.strokeStyle = lineGrad;
+
+        for (let c = 0; c <= gridCols; c++) {
+          const x = c * cellWidth;
+          // Wave amplitude increases towards the bottom
+          const wave = Math.sin(step + c * 0.3 + r * 0.4) * (8 * progress);
+          const y = yBase + wave;
+
+          if (c === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      // Draw Perspective Vertical Lines
+      for (let c = 0; c <= gridCols; c++) {
+        const topX = (c - gridCols / 2) * (cellWidth * 0.2) + width / 2;
+        const botX = c * cellWidth;
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(155, 0, 255, 0.12)';
+        ctx.moveTo(topX, horizonY);
+        ctx.lineTo(botX, height);
+        ctx.stroke();
+      }
+
+      // Draw Floating Cosmic Particles
+      for (let i = 0; i < 25; i++) {
+        const px = (Math.sin(step * 0.5 + i * 99) * 0.5 + 0.5) * width;
+        const py = (Math.cos(step * 0.3 + i * 33) * 0.5 + 0.5) * height;
+        const size = Math.sin(step + i) * 1.5 + 2;
+
+        ctx.fillStyle = i % 2 === 0 ? 'rgba(56, 255, 0, 0.6)' : 'rgba(155, 0, 255, 0.6)';
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      requestAnimationFrame(drawWaveGrid);
+    }
+
+    drawWaveGrid();
+  </script>
+
+  <!-- React Application -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // Portfolio Data with explicit GitHub path instructions in mind
+    const PROJECTS_DATA = [
+      // LOGOS
+      {
+        id: 'logo-1',
+        title: 'KOSMOS AI Branding Identity',
+        category: 'logos',
+        categoryLabel: 'Logos',
+        // REEMPLAZAR AQUÍ POR TU IMAGEN EN GITHUB: 'assets/projects/logos/kosmos.jpg'
+        image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop',
+        description: 'Construcción isotípica y diseño tipográfico para startup tecnológica de procesamiento de datos en tiempo real.',
+        tags: ['Logo Design', 'Vector', 'Branding']
+      },
+      {
+        id: 'logo-2',
+        title: 'AURA Mindful Studio',
+        category: 'logos',
+        categoryLabel: 'Logos',
+        image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=800&auto=format&fit=crop',
+        description: 'Símbolo orgánico basado en formas astronómicas para un espacio holístico y creativo.',
+        tags: ['Logotipo', 'Geometría', 'Identidad']
+      },
+
+      // IDENTIDAD VISUAL Y BRANDING
+      {
+        id: 'brand-1',
+        title: 'NEXUS Quantum Software System',
+        category: 'branding',
+        categoryLabel: 'Identidad Visual & Branding',
+        image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
+        description: 'Sistema completo de marca, manual de normas de uso, paleta cromática, papelería corporativa y guías de interacción.',
+        tags: ['Manual de Marca', 'Mockups', 'Branding']
+      },
+      {
+        id: 'brand-2',
+        title: 'OCEANIC Gin Craft Brand',
+        category: 'branding',
+        categoryLabel: 'Identidad Visual & Branding',
+        image: 'https://images.unsplash.com/photo-1527061011665-3652c757a4d4?q=80&w=800&auto=format&fit=crop',
+        description: 'Desarrollo de identidad de marca premium inspirada en las costas uruguayas y la profundidad marina.',
+        tags: ['Packaging', 'Identidad Visual', 'Mockups']
+      },
+
+      // REBRANDING
+      {
+        id: 'rebrand-1',
+        title: 'Rebranding Institucional VERDE MAR',
+        category: 'rebranding',
+        categoryLabel: 'Rebranding',
+        image: 'https://images.unsplash.com/photo-1542744094-3a31b272c490?q=80&w=800&auto=format&fit=crop',
+        beforeImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop',
+        description: 'Rediseño integral de marca pasando de un formato tradicional de los años 90 a un ecosistema de marca digital flexible.',
+        tags: ['Antes y Después', 'Rediseño', 'Estrategia']
+      },
+
+      // EDITORIAL
+      {
+        id: 'edit-1',
+        title: 'Revista OUSIA Archivo Vol. I',
+        category: 'editorial',
+        categoryLabel: 'Editorial',
+        image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop',
+        description: 'Diseño de maquetación, grilla tipográfica, selección de papeles y acabados para publicación cultural independiente.',
+        tags: ['Revista', 'Editorial', 'Retícula']
+      },
+      {
+        id: 'edit-2',
+        title: 'Catálogo de Arte Contemporáneo',
+        category: 'editorial',
+        categoryLabel: 'Editorial',
+        image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop',
+        description: 'Libro de exposición con encuadernación descubierta y diseño tipográfico minimalista.',
+        tags: ['Libro', 'Catálogo', 'Imprenta']
+      },
+
+      // EXTRAS
+      {
+        id: 'extra-1',
+        title: 'Campañas & Banners para Redes OUSIA',
+        category: 'extras',
+        categoryLabel: 'Extras',
+        image: 'https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800&auto=format&fit=crop',
+        description: 'Piezas publicitarias, flyers para eventos de música electrónica, señalética y contenido dinámico social media.',
+        tags: ['Flyers', 'Social Media', 'Tipografía']
+      },
+      {
+        id: 'extra-2',
+        title: 'Señalética & Tipografía Experimental',
+        category: 'extras',
+        categoryLabel: 'Extras',
+        image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop',
+        description: 'Diseño de sistema de señalización espacial y especímenes tipográficos para exhibición.',
+        tags: ['Señalética', 'Tipografía', 'Cartelería']
+      }
+    ];
+
+    const CREATIVE_PROCESS = [
+      { step: '01', title: 'Descubrimiento', desc: 'Inmersión profunda en los valores, propósito y público objetivo de la marca.' },
+      { step: '02', title: 'Investigación', desc: 'Análisis de mercado, competidores, referentes globales y tendencias de comunicación.' },
+      { step: '03', title: 'Estrategia', desc: 'Definición del ADN de marca, posicionamiento visual, tono de voz y concepto creativo.' },
+      { step: '04', title: 'Diseño', desc: 'Exploración de conceptos, geometría de logos, sistemas de color y tipografía.' },
+      { step: '05', title: 'Desarrollo', desc: 'Construcción de piezas, prototipado, mockups y maquetación de piezas finales.' },
+      { step: '06', title: 'Implementación', desc: 'Entrega de manuales, archivos finales vectorizados y acompañamiento de lanzamiento.' }
+    ];
+
+    function App() {
+      const [activeCategory, setActiveCategory] = useState('all');
+      const [selectedProject, setSelectedProject] = useState(null);
+      const [navOpen, setNavOpen] = useState(false);
+
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }, [activeCategory, selectedProject, navOpen]);
+
+      const filteredProjects = activeCategory === 'all' 
+        ? PROJECTS_DATA 
+        : PROJECTS_DATA.filter(p => p.category === activeCategory);
+
+      return (
+        <div className="min-h-screen flex flex-col justify-between selection:bg-neon selection:text-black">
+          
+          {/* NAVIGATION BAR */}
+          <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 px-6 py-4">
+            <div className="max-w-7xl mx-auto flex justify-between items-center">
+              <a href="#" className="flex items-center space-x-3 group">
+                <span className="font-display font-extrabold text-2xl tracking-widest text-white group-hover:text-neon transition-colors duration-300">
+                  OUSIA<span className="text-neon">.</span>
+                </span>
+                <span className="text-xs tracking-wider text-gray-400 border-l border-gray-700 pl-3 hidden sm:inline-block">
+                  ALEXANDER SILVEIRA
+                </span>
+              </a>
+
+              {/* Desktop Menu */}
+              <div className="hidden md:flex space-x-8 text-sm font-medium tracking-wider">
+                <a href="#inicio" className="hover:text-neon transition-colors">INICIO</a>
+                <a href="#sobre-mi" className="hover:text-neon transition-colors">SOBRE MÍ</a>
+                <a href="#portfolio" className="hover:text-neon transition-colors">PORTFOLIO</a>
+                <a href="#proceso" className="hover:text-neon transition-colors">PROCESO</a>
+                <a href="#contacto" className="hover:text-neon transition-colors">CONTACTO</a>
+              </div>
+
+              {/* Action CTA Header */}
+              <div className="hidden md:block">
+                <a 
+                  href="https://wa.me/59892705850?text=Hola%20Alexander,%20quiero%20trabajar%20contigo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest bg-neon text-black hover:bg-white transition-all shadow-neon-glow"
+                >
+                  WhatsApp
+                </a>
+              </div>
+
+              {/* Mobile Hamburger */}
+              <button 
+                onClick={() => setNavOpen(!navOpen)}
+                className="md:hidden text-white focus:outline-none"
+              >
+                <i data-lucide={navOpen ? "x" : "menu"} className="w-6 h-6"></i>
+              </button>
+            </div>
+
+            {/* Mobile Nav Overlay */}
+            {navOpen && (
+              <div className="md:hidden mt-4 pb-4 space-y-4 flex flex-col items-center border-t border-white/10 pt-4">
+                <a href="#inicio" onClick={()=>setNavOpen(false)} className="hover:text-neon">INICIO</a>
+                <a href="#sobre-mi" onClick={()=>setNavOpen(false)} className="hover:text-neon">SOBRE MÍ</a>
+                <a href="#portfolio" onClick={()=>setNavOpen(false)} className="hover:text-neon">PORTFOLIO</a>
+                <a href="#proceso" onClick={()=>setNavOpen(false)} className="hover:text-neon">PROCESO</a>
+                <a href="#contacto" onClick={()=>setNavOpen(false)} className="hover:text-neon">CONTACTO</a>
+                <a 
+                  href="https://wa.me/59892705850?text=Hola%20Alexander,%20quiero%20trabajar%20contigo"
+                  target="_blank"
+                  className="px-6 py-2 rounded-full text-xs font-bold uppercase bg-neon text-black"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            )}
+          </nav>
+
+          {/* HERO SECTION */}
+          <section id="inicio" className="min-h-screen flex items-center justify-center pt-24 pb-16 px-6">
+            <div className="max-w-5xl mx-auto text-center relative">
+
+              <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-neon/40 bg-neon/10 text-neon text-xs tracking-widest font-semibold uppercase">
+                ✦ ESTUDIO DE DISEÑO GRÁFICO & COMUNICACIÓN VISUAL
+              </div>
+
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight leading-none mb-6">
+                Bienvenido a mi <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon via-white to-violetCustom neon-text-glow">universo creativo</span>.
+              </h1>
+
+              <p className="text-lg sm:text-2xl text-gray-300 font-light max-w-3xl mx-auto mb-8 leading-relaxed">
+                “Aquí las ideas toman forma, las historias encuentran su voz y las marcas construyen su identidad.”
+              </p>
+
+              <div className="mb-10">
+                <h2 className="text-xl sm:text-2xl font-bold font-display text-white">
+                  Alexander Silveira
+                </h2>
+                <p className="text-neon text-sm tracking-widest font-medium uppercase mt-1">
+                  Técnico en Comunicación Visual y Diseño Gráfico
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a 
+                  href="#portfolio"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-neon text-black font-bold uppercase tracking-wider text-sm hover:bg-white transition-all shadow-neon-glow flex items-center justify-center gap-2"
+                >
+                  Explorar Proyectos <i data-lucide="arrow-down-right" className="w-4 h-4"></i>
+                </a>
+
+                <a 
+                  href="https://wa.me/59892705850?text=Hola%20Alexander,%20quiero%20trabajar%20contigo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full glass-card border border-violetCustom text-white font-bold uppercase tracking-wider text-sm hover:border-neon hover:text-neon transition-all flex items-center justify-center gap-2"
+                >
+                  Contactar por WhatsApp <i data-lucide="message-square" className="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* ABOUT ME SECTION */}
+          <section id="sobre-mi" className="py-24 px-6 relative border-t border-white/5 bg-black/40">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+              
+              {/* Photo Column */}
+              <div className="md:col-span-5 relative">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 group">
+                  {/* REEMPLAZAR AQUÍ POR TU FOTO PROFESIONAL: 'assets/alexander-silveira.jpg' */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" 
+                    alt="Alexander Silveira - Fundador OUSIA" 
+                    className="w-full h-auto object-cover filter grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent opacity-80"></div>
+                  
+                  <div className="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-xl border border-neon/30">
+                    <p className="text-neon text-xs font-bold uppercase tracking-widest">FUNDADOR & DIRECTOR CREATIVO</p>
+                    <p className="text-white font-display text-lg font-bold">OUSIA Studio — Uruguay</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Column */}
+              <div className="md:col-span-7 space-y-6">
+                <div className="inline-block px-3 py-1 rounded-full border border-violetCustom/50 bg-violetCustom/10 text-violetCustom text-xs tracking-widest font-semibold uppercase">
+                  SOBRE MÍ & CONCEPTO OUSIA
+                </div>
+
+                <h2 className="font-display text-3xl sm:text-4xl font-extrabold uppercase leading-tight">
+                  Diseño con propósito, estrategia y <span className="text-neon">esencia filosófica</span>.
+                </h2>
+
+                <p className="text-gray-300 leading-relaxed">
+                  Soy <strong>Alexander Silveira</strong>, Técnico en Comunicación Visual y Diseño Gráfico en Uruguay. Como fundador de <strong>OUSIA Studio</strong>, combino estrategia, innovación estética y creatividad rigurosa para concebir identidades de marca sólidas y memorables.
+                </p>
+
+                <p className="text-gray-400 leading-relaxed text-sm">
+                  En la filosofía clásica griega, <em>OUSIA</em> alude a la sustancia fundamental o la verdadera esencia de las cosas. Aplicado al diseño gráfico, mi filosofía consiste en despojar lo accesorio para encontrar el núcleo conceptual de cada proyecto, transformando ideas abstractas en experiencias visuales tangibles de alto impacto.
+                </p>
+
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="glass-card p-4 rounded-xl border-l-2 border-neon">
+                    <h3 className="font-display text-lg font-bold text-white">Estrategia + Arte</h3>
+                    <p className="text-xs text-gray-400 mt-1">Branding, Rebranding y Sistemas Visuales escalables.</p>
+                  </div>
+                  <div className="glass-card p-4 rounded-xl border-l-2 border-violetCustom">
+                    <h3 className="font-display text-lg font-bold text-white">Diseño Editorial</h3>
+                    <p className="text-xs text-gray-400 mt-1">Maquetación de libros, revistas, catálogos y piezas impresas.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* PORTFOLIO SECTION */}
+          <section id="portfolio" className="py-24 px-6">
+            <div className="max-w-7xl mx-auto">
+              
+              <div className="text-center max-w-3xl mx-auto mb-12">
+                <h2 className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight">
+                  Proyectos <span className="text-neon">Destacados</span>
+                </h2>
+                <p className="text-gray-400 mt-4 text-sm sm:text-base">
+                  Explora nuestros trabajos clasificados por áreas de especialidad visual.
+                </p>
+              </div>
+
+              {/* Category Filter Buttons */}
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
+                {[
+                  { id: 'all', label: 'Todos' },
+                  { id: 'logos', label: 'Logos' },
+                  { id: 'branding', label: 'Identidad Visual & Branding' },
+                  { id: 'rebranding', label: 'Rebranding' },
+                  { id: 'editorial', label: 'Editorial' },
+                  { id: 'extras', label: 'Extras' }
+                ].map(cat => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.id)}
+                    className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                      activeCategory === cat.id
+                        ? 'bg-neon text-black shadow-neon-glow'
+                        : 'glass-card text-gray-300 hover:text-white hover:border-neon/50'
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Projects Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredProjects.map(project => (
+                  <div 
+                    key={project.id}
+                    onClick={() => setSelectedProject(project)}
+                    className="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/10 hover:border-neon/60 transition-all duration-500 flex flex-col justify-between"
+                  >
+                    <div className="relative aspect-video overflow-hidden bg-black/60">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent opacity-60"></div>
+                      <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-black/80 text-neon border border-neon/30">
+                        {project.categoryLabel}
+                      </span>
+                    </div>
+
+                    <div className="p-6">
+                      <h3 className="font-display text-xl font-bold text-white group-hover:text-neon transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-400 text-xs mt-2 line-clamp-2">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {project.tags.map((t, idx) => (
+                          <span key={idx} className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-white/5 text-gray-300">
+                            #{t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
+          {/* CREATIVE PROCESS SECTION */}
+          <section id="proceso" className="py-24 px-6 border-t border-white/10 bg-black/50">
+            <div className="max-w-6xl mx-auto">
+              
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <span className="text-violetCustom font-mono text-xs tracking-widest uppercase">METODOLOGÍA DE TRABAJO</span>
+                <h2 className="font-display text-3xl sm:text-5xl font-extrabold uppercase mt-2">
+                  Proceso <span className="text-violet-400 violet-text-glow">Creativo</span>
+                </h2>
+                <p className="text-gray-400 text-sm mt-3">
+                  Una línea de tiempo estructurada para transformar ideas en identidades visuales estratégicas.
+                </p>
+              </div>
+
+              {/* Futuristic Timeline */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+                {CREATIVE_PROCESS.map((proc, index) => (
+                  <div key={index} className="glass-card p-6 rounded-2xl relative border border-white/10 hover:border-violetCustom/60 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-display text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neon to-violetCustom">
+                        {proc.step}
+                      </span>
+                      <i data-lucide="sparkles" className="w-5 h-5 text-neon"></i>
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-white mb-2">{proc.title}</h3>
+                    <p className="text-gray-400 text-xs leading-relaxed">{proc.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
+          {/* TESTIMONIALS SECTION */}
+          <section className="py-24 px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="font-display text-3xl sm:text-4xl font-extrabold uppercase">
+                  Confianza & <span className="text-neon">Testimonios</span>
+                </h2>
+                <p className="text-gray-400 text-sm mt-2">Experiencias de clientes e instituciones que han potenciado su marca con OUSIA.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="glass-card p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
+                  <p className="text-gray-300 italic text-sm leading-relaxed mb-6">
+                    “Alexander captó inmediatamente la esencia de lo que necesitábamos. El rebranding de nuestra empresa no solo mejoró nuestra imagen corporativa, sino que elevó nuestra percepción en el mercado internacional.”
+                  </p>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-neon to-violetCustom flex items-center justify-center font-bold text-black font-display">
+                      CM
+                    </div>
+                    <div>
+                      <h3 className="font-display font-bold text-white text-sm">Cliente Confidencial</h3>
+                      <p className="text-xs text-neon">Director de Marca & Innovación</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="glass-card p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
+                  <p className="text-gray-300 italic text-sm leading-relaxed mb-6">
+                    “El nivel de detalle, la fundamentación teórica y la precisión en los manuales de marca entregados por OUSIA superaron todas nuestras expectativas. Altamente recomendado en Uruguay.”
+                  </p>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violetCustom to-neon flex items-center justify-center font-bold text-black font-display">
+                      RS
+                    </div>
+                    <div>
+                      <h3 className="font-display font-bold text-white text-sm">Startup Tecnológica</h3>
+                      <p className="text-xs text-violetCustom">Fundador & CEO</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* CONTACT SECTION */}
+          <section id="contacto" className="py-24 px-6 border-t border-white/10 relative bg-black/60">
+            <div className="max-w-4xl mx-auto text-center space-y-8">
+              
+              <div className="inline-block px-4 py-1.5 rounded-full border border-neon/50 bg-neon/10 text-neon text-xs font-semibold uppercase tracking-widest">
+                INICIA UN PROYECTO
+              </div>
+
+              <h2 className="font-display text-3xl sm:text-6xl font-extrabold uppercase tracking-tight leading-tight">
+                ¿Trabajamos juntos o <span className="text-neon neon-text-glow">le tienes miedo al éxito?</span>
+              </h2>
+
+              <p className="text-gray-300 text-base sm:text-xl max-w-2xl mx-auto font-light">
+                Es momento de transformar tus ideas en identidades memorables, estratégicas y con presencia global.
+              </p>
+
+              <div>
+                <a 
+                  href="https://wa.me/59892705850?text=Hola%20Alexander,%20quiero%20trabajar%20contigo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-neon text-black font-extrabold text-sm uppercase tracking-widest hover:bg-white transition-all shadow-neon-glow transform hover:-translate-y-1"
+                >
+                  <i data-lucide="message-circle" className="w-5 h-5"></i>
+                  Enviar Mensaje directo por WhatsApp
+                </a>
+              </div>
+
+              {/* Social Channels */}
+              <div className="pt-8 flex flex-wrap justify-center items-center gap-6 text-sm text-gray-400">
+                <a href="https://instagram.com/ousia_design" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-neon transition-colors">
+                  <i data-lucide="instagram" className="w-5 h-5"></i>
+                  <span>@ousia_design</span>
+                </a>
+                <a href="https://instagram.com/alexandersilveiraq" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-neon transition-colors">
+                  <i data-lucide="instagram" className="w-5 h-5"></i>
+                  <span>@alexandersilveiraq</span>
+                </a>
+                <a href="mailto:ousiaousia@gmail.com" className="flex items-center space-x-2 hover:text-neon transition-colors">
+                  <i data-lucide="mail" className="w-5 h-5"></i>
+                  <span>ousiaousia@gmail.com</span>
+                </a>
+                <span className="flex items-center space-x-2">
+                  <i data-lucide="phone" className="w-5 h-5 text-neon"></i>
+                  <span>+598 92 705 850</span>
+                </span>
+              </div>
+
+            </div>
+          </section>
+
+          {/* FOOTER */}
+          <footer className="border-t border-white/10 py-10 px-6 glass-card text-xs text-gray-500">
+            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div>
+                <span className="font-display font-bold text-white tracking-widest text-base">OUSIA</span>
+                <span className="ml-2 text-gray-400">— Alexander Silveira | Diseño Gráfico & Comunicación Visual</span>
+              </div>
+              <div>
+                © {new Date().getFullYear()} OUSIA Studio. Todos los derechos reservados. Uruguay.
+              </div>
+            </div>
+          </footer>
+
+          {/* PROJECT EXPANDED MODAL */}
+          {selectedProject && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+              <div className="glass-card max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-white/20 p-6 relative">
+                
+                <button 
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-full bg-black/50"
+                >
+                  <i data-lucide="x" className="w-6 h-6"></i>
+                </button>
+
+                <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-neon text-black">
+                  {selectedProject.categoryLabel}
+                </span>
+
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mt-4">
+                  {selectedProject.title}
+                </h3>
+
+                {selectedProject.beforeImage ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                    <div>
+                      <p className="text-xs font-bold text-red-400 uppercase mb-2">Antes</p>
+                      <img src={selectedProject.beforeImage} className="rounded-xl w-full aspect-video object-cover" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-neon uppercase mb-2">Después (OUSIA Redesign)</p>
+                      <img src={selectedProject.image} className="rounded-xl w-full aspect-video object-cover" />
+                    </div>
+                  </div>
+                ) : (
+                  <img 
+                    src={selectedProject.image} 
+                    alt={selectedProject.title}
+                    className="w-full h-auto rounded-xl my-6 border border-white/10"
+                  />
+                )}
+
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {selectedProject.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-6">
+                  {selectedProject.tags.map((t, idx) => (
+                    <span key={idx} className="text-xs uppercase font-semibold px-3 py-1 rounded-full bg-white/10 text-neon">
+                      #{t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-white/10 flex justify-end">
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="px-6 py-2 rounded-full bg-white text-black font-bold text-xs uppercase"
+                  >
+                    Cerrar Vista
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
